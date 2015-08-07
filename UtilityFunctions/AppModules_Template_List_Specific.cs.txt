@@ -1,0 +1,80 @@
+﻿Basic process for using GCFC Legacy  Platform
+======================================
+
+1)    Create a Folder for your App. (ALL  references must stay within your App or "Utilities")
+
+2)    Add a Template for your app  :  inherit from HAWK_Template_2
+      (ALL  references must stay within your App or "Utilities")
+       reset label_SubName.Text
+
+3)    Add a App_Main  form for your app  :  Inherit form your Template
+       (ALL  references must stay within your App or "Utilities")
+
+4)    Add a ListOjects module : inherit from Utilities.Documents.Listobjects
+	add some code & recompile as needed
+
+5)    Add DisplaySpecificObject  module : inherit from Utilities.Documents.Add DisplaySpecificObject
+	add some code & recompile as needed
+
+6)    Add specific code to your Template to Override  button_DisplaySpecificObject_Click  and  button_ListOjects_Click
+
+7)    Say a prayer and test your application
+
+
+//  Template for Product Sales
+//namespace SalesAndMarketing.ProductSales
+//{
+//    public partial class ProductSales_Template : HAWK_Template_2
+//    {
+//        protected IdentityObject ident;
+//        public ProductSales_Template()
+//        {
+//            InitializeComponent();
+//            label_SubName.Text = "Product Sales";
+//        }
+//        protected override void button_ListObjects_Click(object sender, EventArgs e)
+//        {
+//            this.Close();
+//            ListObjects objList = new ListObjects(); objList.Show();
+//        }
+//
+//        protected override void button_DisplaySelectedObject_Click(object sender, EventArgs e)
+//        {
+//            this.Close();
+//            DisplaySelectedObject dispObj = new DisplaySelectedObject(); dispObj.Show();
+//        }
+//         protected override void button_ChangeObject_Click(object sender, EventArgs e)
+//        {
+//                   //  this.Close();
+//                   Utilities.Documents.ChangeDocument  _update = new Utilities.Documents.ChangeDocument (ident); _update.Show();
+//         }
+//    }
+//}
+//    override module for ListObjects
+//  public partial class ListObjects : Utilities.Documents.ListObjects
+//    {
+//        public ListObjects()
+//        {
+//              InitializeComponent();
+//            base.label_SubName.Text = "Product Sales";
+//            LoadComboBox1("select DocType, description from documentTypes", "21");
+//            //   base.comboBox1.SelectedIndex = base.comboBox1.items.Count;
+//        }
+//    }
+//    }
+//}
+//  Override module for Specific Display
+//  for Product Sales : DocType = 21
+//namespace SalesAndMarketing.ProductSales
+//{
+//    public partial class DisplaySelectedObject : Utilities.Documents.DisplaySelectedObject
+//    {
+//        public  DisplaySelectedObject()
+//        {
+//            InitializeComponent();
+//            label_SubName.Text = "Product Sales";
+//            LoadBBasicDocInfo_SpecificType("21");
+//        }
+//    }
+//}
+

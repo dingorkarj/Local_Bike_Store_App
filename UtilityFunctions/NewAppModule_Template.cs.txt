@@ -1,0 +1,32 @@
+﻿namespace NewAppModule
+{
+    public partial class NewAppModule_Template : HAWK_Template_2
+    {
+        protected IdentityObject  ident;
+        public NewAppModule_Template()
+        {
+            InitializeComponent();
+        }
+        protected override void SaveIdent(IdentityObject _ident)
+        {
+            base.SaveIdent(_ident);
+            ident = _ident;
+        }
+       protected override void button_ListObjects_Click(object sender, EventArgs e)
+       {
+           this.Close();
+           List_Objects objList = new List_Objects (); objList.Show();
+       }
+
+        protected override void button_DisplaySelectedObject_Click(object sender, EventArgs e)
+        {
+                   this.Close();
+                   DisplaySelectedObject dispObj = new DisplaySelectedObject(); dispObj.Show();
+         }
+         protected override void button_ChangeObject_Click(object sender, EventArgs e)
+        {
+                   //  this.Close();
+                   UpdatePayable _update = new UpdatePayable(ident); _update.Show();
+         }
+    }
+}

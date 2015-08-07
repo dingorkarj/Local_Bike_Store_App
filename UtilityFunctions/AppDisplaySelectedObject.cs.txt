@@ -1,0 +1,13 @@
+﻿//  for Product Sales : DocType = 21
+namespace SalesAndMarketing.ProductSales
+{
+    public partial class DisplaySelectedObject : Utilities.Documents.DisplaySelectedObject
+    {
+        public  DisplaySelectedObject()
+        {
+            InitializeComponent();
+            label_SubName.Text = "Product Sales";
+            LoadBBasicDocInfo_SpecificType("21");
+        }
+    }
+}

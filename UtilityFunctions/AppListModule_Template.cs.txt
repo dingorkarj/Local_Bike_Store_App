@@ -1,0 +1,10 @@
+﻿  public partial class ListObjects : Utilities.Documents.ListObjects
+    {
+        public ListObjects()
+        {
+            InitializeComponent();
+            base.label_SubName.Text = "Product Sales";
+            LoadComboBox1("select DocType, description from documentTypes", "21");
+            //   base.comboBox1.SelectedIndex = base.comboBox1.items.Count;
+        }
+    }
